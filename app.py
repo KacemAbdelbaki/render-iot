@@ -144,14 +144,14 @@ def publish_message():
     
     publish_result = mqtt_client.publish(topic_fromreq, msg_fromreq, qos=2) # Ce depend un peu beauooup de la forme du brooker !
 
-    print(f"\n publish_result is {publish_result}\n") # j'ai l'impression que le publish se fait .... mais apres ???? 
+    print(f"\n publish_result is {publish_result}\n")
     return  jsonify({'code': publish_result[0]})
     
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%        
 # Initialisation MQTT
-app.config['MQTT_BROKER_URL'] =  "71c82290836f486aaeb1a8f604e7db16.s1.eu.hivemq.cloud"
+app.config['MQTT_BROKER_URL'] =  "5.tcp.eu.ngrok.io" # used ngrok for now but i'm going to change to hivemq (free serverless broker)
 #app.config['MQTT_BROKER_URL'] =  "broker.hivemq.com"
-app.config['MQTT_BROKER_PORT'] = 1883
+app.config['MQTT_BROKER_PORT'] = 13421
 #app.config['MQTT_USERNAME'] = ''  # Set this item when you need to verify username and password
 #app.config['MQTT_PASSWORD'] = ''  # Set this item when you need to verify username and password
 #app.config['MQTT_KEEPALIVE'] = 5  # Set KeepAlive time in seconds
