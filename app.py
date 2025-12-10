@@ -149,12 +149,13 @@ def publish_message():
     
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%        
 # Initialisation MQTT
-app.config['MQTT_BROKER_URL'] =  "5.tcp.eu.ngrok.io" # used ngrok for now but i'm going to change to hivemq (free serverless broker)
-#app.config['MQTT_BROKER_URL'] =  "broker.hivemq.com"
-app.config['MQTT_BROKER_PORT'] = 13421
-#app.config['MQTT_USERNAME'] = ''  # Set this item when you need to verify username and password
-#app.config['MQTT_PASSWORD'] = ''  # Set this item when you need to verify username and password
-#app.config['MQTT_KEEPALIVE'] = 5  # Set KeepAlive time in seconds
+# app.config['MQTT_BROKER_URL'] =  "5.tcp.eu.ngrok.io" # used ngrok for now but i'm going to change to hivemq (free serverless broker)
+#app.config['MQTT_BROKER_URL'] =  "71c82290836f486aaeb1a8f604e7db16.s1.eu.hivemq.cloud"
+# app.config['MQTT_BROKER_PORT'] = 13421
+app.config['MQTT_BROKER_PORT'] = 8883
+app.config['MQTT_USERNAME'] = 'kacem'  # Set this item when you need to verify username and password
+app.config['MQTT_PASSWORD'] = 'Cimoo20022'  # Set this item when you need to verify username and password
+app.config['MQTT_KEEPALIVE'] = 5  # Set KeepAlive time in seconds
 app.config['MQTT_TLS_ENABLED'] = False  # If your broker supports TLS, set it True
 
 mqtt_client = Mqtt(app)
