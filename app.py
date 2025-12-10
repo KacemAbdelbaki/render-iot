@@ -182,18 +182,14 @@ def handle_mqtt_message(client, userdata, msg):
     
     if (msg.topic == topicname) : # cf https://stackoverflow.com/questions/63580034/paho-updating-userdata-from-on-message-callback
         decoded_message =str(msg.payload.decode("utf-8"))
-        #print("\ndecoded message received = {}".format(decoded_message))
-        dic =json.loads(decoded_message) # from string to dict
-        print("\n Dictionnary  received = {}".format(dic))
+        dic =json.loads(decoded_message)
+        # print("\n Dictionnary  received = {}".format(dic))
 
-        who = dic["info"]["ident"] # Qui a publié ?
-        t = dic["status"]["temperature"] # Quelle température ?
+        who = dic["info"]["ident"]
+        t = dic["status"]["temperature"]
 
 
 #%%%%%%%%%%%%%  main driver function
 if __name__ == '__main__':
-    
-    # run() method of Flask class runs the application 
-    # on the local development server.
-    app.run(debug=False) #host='127.0.0.1', port=5000)
+    app.run(debug=False, host='0.0.0.0', port=5000)
     
