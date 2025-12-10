@@ -17,9 +17,7 @@ from pymongo import MongoClient
 # Initialisation :  Mongo DataBase
 
 # Connect to Cluster Mongo : attention aux permissions "network"/MONGO  !!!!!!!!!!!!!!!!
-ADMIN=False # Faut etre ADMIN/mongo pour ecrire dans la base
-#client = MongoClient("mongodb+srv://menez:i.....Q@cluster0.x0zyf.mongodb.net/?retryWrites=true&w=majority")
-#client = MongoClient("mongodb+srv://logincfsujet:pwdcfsujet@cluster0.x0zyf.mongodb.net/?retryWrites=true&w=majority")
+ADMIN=True # Faut etre ADMIN/mongo pour ecrire dans la base
 client = MongoClient("mongodb+srv://abdelbakikacem2023_db_user:jS1EJ9Pr87OdYWt6@waterbnb.srxkmvl.mongodb.net/?appName=WaterBnB")
 
 #-----------------------------------------------------------------------------
@@ -49,7 +47,7 @@ userscollection = db.users
 # import authorized users .. if not already in ?
 if ADMIN :
     userscollection.delete_many({})  # empty collection
-    excel = csv.reader(open("usersM1_2025.csv")) # list of authorized users
+    excel = csv.reader(open("usersM1_2026.csv")) # list of authorized users
     for l in excel : #import in mongodb
         ls = (l[0].split(';'))
         #print(ls)
@@ -151,7 +149,7 @@ def publish_message():
     
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%        
 # Initialisation MQTT
-app.config['MQTT_BROKER_URL'] =  "localhost"
+app.config['MQTT_BROKER_URL'] =  "71c82290836f486aaeb1a8f604e7db16.s1.eu.hivemq.cloud"
 #app.config['MQTT_BROKER_URL'] =  "broker.hivemq.com"
 app.config['MQTT_BROKER_PORT'] = 1883
 #app.config['MQTT_USERNAME'] = ''  # Set this item when you need to verify username and password
